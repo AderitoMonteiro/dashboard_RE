@@ -261,11 +261,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                               Total Inscrito Diaspora</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora.0.total }}</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                         <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -279,11 +279,45 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Novo Registo</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora_novo.0.total }}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-plus fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Transferençia</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora_transferencia.0.total }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                           <i class="fas fa-solid fa-file-pen fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Duplas</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora_dupla.0.total }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-solid fa-check-double fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -296,23 +330,23 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Percentagem de Duplas Eleminado
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{total_registo_diaspora_percentagem_eliminado.0.PercentagemEliminados }}%</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            style='width:{{total_registo_diaspora_percentagem_eliminado.0.PercentagemEliminados }}%' aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-solid fa-chart-line text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -320,22 +354,7 @@
                         </div>
 
                         <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <!-- Content Row -->
@@ -348,7 +367,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Recenseamento Eleitoral na Diaspora</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -401,15 +420,11 @@
                                         <canvas id="myPieChart"></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
+                                        {% for total_registo_cre_list in total_registo_cre %}
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-primary"></i> {{total_registo_cre_list.CRE_RELACIONADO}}
+                                            </span>
+                                       {% endfor %}
                                     </div>
                                 </div>
                             </div>
