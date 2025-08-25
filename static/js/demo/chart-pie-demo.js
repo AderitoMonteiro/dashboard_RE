@@ -10,7 +10,26 @@ $.ajax({
 
           const jsonString = JSON.stringify(data);  
           const result = JSON.parse(jsonString); 
-          console.log(result.resultado.map(item => item.CRE_RELACIONADO))
+
+           let divPai = document.getElementById("cre_desc");
+           let span = document.createElement("span");
+           span.setAttribute( "class","mr-2");
+           let itag;
+
+           divPai.innerHTML = '';
+          
+
+          result.resultado.forEach(item => {
+
+               itag = document.createElement("span");
+               itag.setAttribute( "class","fas fa-circle text-primary");
+               itag.setAttribute( "style","color:" +item.cor+ "!important;");
+               itag.innerHTML=item.CRE_RELACIONADO;
+               span.appendChild(itag);
+
+           });
+
+          divPai.appendChild(span);
 
 
           var ctx = document.getElementById("myPieChart");

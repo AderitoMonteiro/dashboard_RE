@@ -37,7 +37,7 @@ def dahsboard_index(request):
                                          '''
     
     query_info_sign_cre = '''
-                                          EXEC [dbo].[sp_registo_por_CRE]
+                                          EXEC [dbo].[sp_registo_por_CRE_origem]
                                           ''' 
 
     with connection.cursor() as cursor:
