@@ -45,13 +45,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                         
-                        </div>
-                    </form>
+                
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -241,8 +235,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                       
                     </div>
 
                     <!-- Content Row -->
@@ -273,7 +266,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Novo Registo</div>
+                                                NOVO REGISTO</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora_novo.0.total }}</div>
                                         </div>
                                         <div class="col-auto">
@@ -289,12 +282,12 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Transferençia</div>
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                TRANSFERÊNCIA</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora_transferencia.0.total }}</div>
                                         </div>
                                         <div class="col-auto">
-                                           <i class="fas fa-solid fa-file-pen fa-2x text-gray-300"></i>
+                                           <i class="fas fa-solid fa-people-arrows fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +300,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Duplas</div>
+                                                DUPLAS</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_registo_diaspora_dupla.0.total }}</div>
                                         </div>
                                         <div class="col-auto">
@@ -459,33 +452,45 @@
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Enquadramento</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="{% static 'img/undraw_posting_photo.svg'  %}" alt="...">
+                                            src="{% static 'img/undraw_investment-data_frxx.svg'  %}" alt="...">
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
+                                   <p>
+                                        O presente <strong>dashboard</strong> foi desenvolvido com o objetivo de 
+                                        <strong>monitorizar a evolução do processo de recenseamento eleitoral</strong>, 
+                                        na <strong>diáspora</strong>.
+                                    </p>
+
+                                    <p>
+                                        Através dos indicadores apresentados, é possível analisar:
+                                    </p>
+                                    <ul>
+                                        <li>A <strong>tendência temporal</strong> do número de cidadãos recenseados;</li>
+                                        <li>A <strong>comparação entre território nacional e diáspora</strong>, avaliando a adesão em diferentes contextos geográficos;</li>
+                                        <li>A <strong>origem e destino</strong> dos recenseados, refletindo a mobilidade e participação da comunidade nacional no estrangeiro;</li>
+                                        <li>A <strong>distribuição por países e regiões</strong>, destacando os principais centros de recenseamento fora do território.</li>
+                                    </ul>
+
+                                    
                                 </div>
                             </div>
 
                             <!-- Approach -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Abordagem de Desenvolvimento</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
+                                   <p>
+                                        Este painel constitui um instrumento de apoio à 
+                                        <strong>gestão, planeamento e tomada de decisão</strong>, 
+                                        permitindo às entidades responsáveis acompanhar em tempo real o progresso do recenseamento 
+                                        e identificar oportunidades de melhoria no processo.
+                                    </p>
                                 </div>
                             </div>
 
