@@ -354,7 +354,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Recenseamento Eleitoral na Diaspora</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">RECENSEAMENTO ELEITORAL NA DIASPORA</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -429,7 +429,7 @@
 
                                       {% for total_registo_cre_list in total_registo_cre %}
                                         <h4 class="small font-weight-bold">{{total_registo_cre_list.CRE_ORIGEM}} ({{total_registo_cre_list.TotalRegistos}})<span
-                                        class="float-right">{{total_registo_cre_list.PerceRegistos}}</span></h4>
+                                        class="float-right">{{total_registo_cre_list.PerceRegistos}} %</span></h4>
                                         <div class="progress mb-4">
                                             <div class="progress-bar bg-danger"  role="progressbar" style="width:{{total_registo_cre_list.PerceRegistos}}%;background-color:{{total_registo_cre_list.cor}} !important"
                                                 aria-valuenow="{{total_registo_cre_list.PerceRegistos}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -470,7 +470,6 @@
                                     </p>
                                     <ul>
                                         <li>A <strong>tendência temporal</strong> do número de cidadãos recenseados;</li>
-                                        <li>A <strong>comparação entre território nacional e diáspora</strong>, avaliando a adesão em diferentes contextos geográficos;</li>
                                         <li>A <strong>origem e destino</strong> dos recenseados, refletindo a mobilidade e participação da comunidade nacional no estrangeiro;</li>
                                         <li>A <strong>distribuição por países e regiões</strong>, destacando os principais centros de recenseamento fora do território.</li>
                                     </ul>
