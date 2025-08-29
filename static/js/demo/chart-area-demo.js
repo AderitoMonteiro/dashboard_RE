@@ -44,6 +44,7 @@ $.ajax({
             data: {
               labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
               
+              
               datasets: [{
                 label: "Earnings",
                 lineTension: 0.3,
