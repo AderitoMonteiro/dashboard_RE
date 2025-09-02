@@ -57,9 +57,9 @@ $.ajax({
                 pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                 pointHitRadius: 10,
                 pointBorderWidth: 2,
-                data: result.resultado.map(item => item.TotalRegistos),
-                
-              }],
+                data: result.resultado.map(item => item.TotalRegistos),   
+              }
+        ],
             },
             options: {
               maintainAspectRatio: false,
