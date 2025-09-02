@@ -34,6 +34,7 @@ $.ajax({
 
           const jsonString = JSON.stringify(data);  
           const result = JSON.parse(jsonString); 
+          
           console.log(result.resultado.map(item => item.TotalRegistos))
 
           // Area Chart Example
@@ -46,7 +47,7 @@ $.ajax({
               
               
               datasets: [{
-                label: "Earnings",
+                label: "Recenseado",
                 lineTension: 0.3,
                 backgroundColor: "rgba(78, 115, 223, 0.05)",
                 borderColor: "rgba(78, 115, 223, 1)",
@@ -58,8 +59,7 @@ $.ajax({
                 pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                 pointHitRadius: 10,
                 pointBorderWidth: 2,
-                data: result.resultado.map(item => item.TotalRegistos),
-                
+                data: result.resultado.map(item => item.TotalRegistos),     
               }],
             },
             options: {
