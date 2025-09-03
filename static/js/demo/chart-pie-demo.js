@@ -11,7 +11,6 @@ $.ajax({
           const jsonString = JSON.stringify(data);  
           const result = JSON.parse(jsonString); 
 
-          console.log(result)
 
            // myPieChart start
            let divPai = document.getElementById("cre_desc");
@@ -33,6 +32,7 @@ $.ajax({
            });
 
           divPai.appendChild(span);
+
 
           // END
 
@@ -67,13 +67,21 @@ $.ajax({
               progress_bar.setAttribute('aria-valuemin','0')
               progress_bar.setAttribute('aria-valuemax','100')
 
-              count=count+Number(`${item.TotalRegistos}`);
+              count=count+1;
 
               progress.appendChild(progress_bar);
               CRE_R.appendChild(progress);
 
           }
-             console.log(count)
+
+            console.log(count)
+
+            let title_dv = document.getElementById("cre_relacionado_title");
+            let title_CREO = document.createElement("h6");
+            title_CREO.setAttribute('class','m-0 font-weight-bold text-primary')
+            title_CREO.innerHTML='CRE RELACIONADO ('+count+')';
+            title_dv.appendChild(title_CREO);
+
            //CRE_R.appendChild(progress);
 
 

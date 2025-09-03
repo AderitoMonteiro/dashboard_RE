@@ -34,8 +34,67 @@ $.ajax({
 
           const jsonString = JSON.stringify(data);  
           const result = JSON.parse(jsonString); 
-          
-          console.log(result.resultado.map(item => item.TotalRegistos))
+   
+          console.log(result.resultado)
+
+          let cre=[];
+          let cre1=[];
+          let data_grafico=[];
+          let cor_grafico=[];
+          let percentagem_grafico=[];
+          let x=0
+
+          for (let item of result.resultado) {
+  
+            if(!cre.some(obj => obj.hasOwnProperty(`${item.CRE_RELACIONADO}`))){
+
+                  cre.push({[`${item.CRE_RELACIONADO}`]:  [`${item.TotalRegistos}`] });
+                  cor_grafico.push({[`${item.CRE_RELACIONADO}`]: `${item.cor}` });
+                  percentagem_grafico.push({[`${item.CRE_RELACIONADO}`]: [`${item.PerceRegistos}`] });
+
+            }else{
+
+                  let objComChave = cre.find(obj => obj.hasOwnProperty(`${item.CRE_RELACIONADO}`));
+                  objComChave[`${item.CRE_RELACIONADO}`].push(`${item.TotalRegistos}`);
+
+                  let objCom= percentagem_grafico.find(obj => obj.hasOwnProperty(`${item.CRE_RELACIONADO}`));
+                  objCom[`${item.CRE_RELACIONADO}`].push(`${item.PerceRegistos}`);
+
+            }
+            
+          }
+
+         console.log(percentagem_grafico)
+
+         cre.forEach(obj => {
+              Object.entries(obj).forEach(([chave, valores]) => {
+
+                 let item = cor_grafico.find(obj => obj.hasOwnProperty(chave));
+                 let percentagem = percentagem_grafico.find(obj => obj.hasOwnProperty(chave));
+
+                 console.log('soma percentagem '+ obj[chave].reduce((a, b) => a + Number(b), 0))
+
+                 data_grafico.push({
+                            label: 'Recenseado '+ chave,
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(78, 115, 223, 0.05)",
+                            borderColor: item[chave],
+                            pointRadius: 3,
+                            pointBackgroundColor: item[chave],
+                            pointBorderColor: item[chave],
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: item[chave],
+                            pointHoverBorderColor: item[chave],
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: valores // transforma cada item em TotalRegistos
+                        });
+
+                });
+          });
+
+
+          console.log("data_grafico " + data_grafico[0])
 
           // Area Chart Example
           var ctx = document.getElementById("myAreaChart");
@@ -46,21 +105,7 @@ $.ajax({
               labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
               
               
-              datasets: [{
-                label: "Recenseado",
-                lineTension: 0.3,
-                backgroundColor: "rgba(78, 115, 223, 0.05)",
-                borderColor: "rgba(78, 115, 223, 1)",
-                pointRadius: 3,
-                pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointBorderColor: "rgba(78, 115, 223, 1)",
-                pointHoverRadius: 3,
-                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-                pointHitRadius: 10,
-                pointBorderWidth: 2,
-                data: result.resultado.map(item => item.TotalRegistos),     
-              }],
+              datasets: data_grafico,
             },
             options: {
               maintainAspectRatio: false,
@@ -70,7 +115,21 @@ $.ajax({
                   right: 25,
                   top: 25,
                   bottom: 0
-                }
+                },
+                interaction: {
+                    mode: 'nearest',   // tooltip pega apenas o ponto mais próximo
+                    intersect: true    // só dispara se o mouse estiver sobre o ponto
+                },
+                 plugins: {
+                  tooltip: {
+                      callbacks: {
+                          label: function(context) {
+                              // retorna apenas o valor do dataset atual
+                              return `${context.dataset.label}: ${context.parsed.y}`;
+                          }
+                      }
+                  }
+              }
               },
               scales: {
                 xAxes: [{
@@ -118,7 +177,6 @@ $.ajax({
                 yPadding: 15,
                 displayColors: false,
                 intersect: false,
-                mode: 'index',
                 caretPadding: 10,
                 callbacks: {
                   label: function(tooltipItem, chart) {
@@ -129,6 +187,9 @@ $.ajax({
               }
             }
           });
+
+
+        myLineChart.update();
 
         },
         error: function (xhr, status, error) {
