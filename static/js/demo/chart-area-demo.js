@@ -34,7 +34,23 @@ $.ajax({
 
           const jsonString = JSON.stringify(data);  
           const result = JSON.parse(jsonString); 
-          console.log(result.resultado.map(item => item.TotalRegistos))
+          
+          console.log('ali'+result.resultado.map(item => item.TotalRegistos))
+
+       
+          let cre='';
+
+           for (let item of result.resultado) {
+
+             console.log("País:", `${item.CRE_RELACIONADO}`);
+
+             for (const mes in result.resultado[`${item.CRE_RELACIONADO}`]) {
+                    console.log("  Mês:", `${mes.mes}`, "->", result.resultado[`${item.CRE_RELACIONADO}`][`${mes.mes}`]);
+                }
+               
+           }
+
+          
 
           // Area Chart Example
           var ctx = document.getElementById("myAreaChart");
@@ -44,8 +60,9 @@ $.ajax({
             data: {
               labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
               
+              
               datasets: [{
-                label: "Earnings",
+                label: "Recenseado",
                 lineTension: 0.3,
                 backgroundColor: "rgba(78, 115, 223, 0.05)",
                 borderColor: "rgba(78, 115, 223, 1)",
@@ -57,9 +74,8 @@ $.ajax({
                 pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                 pointHitRadius: 10,
                 pointBorderWidth: 2,
-                data: result.resultado.map(item => item.TotalRegistos),   
-              }
-        ],
+                data: result.resultado.map(item => item.TotalRegistos),     
+              }],
             },
             options: {
               maintainAspectRatio: false,
