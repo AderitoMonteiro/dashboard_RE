@@ -72,7 +72,7 @@ $.ajax({
                  let item = cor_grafico.find(obj => obj.hasOwnProperty(chave));
                  let percentagem = percentagem_grafico.find(obj => obj.hasOwnProperty(chave));
 
-                 console.log('soma percentagem '+ obj[chave].reduce((a, b) => a + Number(b), 0))
+                 console.log('soma percentagem '+ parseFloat(percentagem[chave].reduce((a, b) => a + Number(b), 0).toFixed(2)))
 
                  data_grafico.push({
                             label: 'Recenseado '+ chave,
@@ -93,8 +93,40 @@ $.ajax({
                 });
           });
 
+          let cre_piza=[]
+          let cre_cor=[]
+          let cre_total=[]
 
-          console.log("data_grafico " + data_grafico[0])
+           // myPieChart start
+           let divPai = document.getElementById("cre_desc");
+           let span = document.createElement("span");
+           span.setAttribute( "class","mr-2");
+           let itag;
+
+            cre.forEach(obj => {
+                 Object.entries(obj).forEach(([chave, valores]) => {
+
+                let item = cor_grafico.find(obj => obj.hasOwnProperty(chave));
+
+                cre_piza.push(chave)
+                cre_total.push(obj[chave].reduce((a, b) => a + Number(b), 0))
+                cre_cor.push(item[chave])
+
+
+               divPai.innerHTML = '';
+          
+
+              itag = document.createElement("span");
+              itag.setAttribute( "class","fas fa-circle text-primary");
+              itag.setAttribute( "style","color:" +item[chave]+ "!important;");
+              itag.innerHTML=chave;
+              span.appendChild(itag);
+
+                       });
+              });
+
+            divPai.appendChild(span);
+
 
           // Area Chart Example
           var ctx = document.getElementById("myAreaChart");
@@ -186,6 +218,41 @@ $.ajax({
                 }
               }
             }
+          });
+
+
+          
+           //CRE_R.appendChild(progress);
+
+          var ctx = document.getElementById("myPieChart");
+          var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+              labels: cre_piza,
+              datasets: [{
+                data: cre_total,
+                backgroundColor: cre_cor,
+                hoverBackgroundColor: cre_cor,
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+              }],
+            },
+            options: {
+              maintainAspectRatio: false,
+              tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+              },
+              legend: {
+                display: false
+              },
+              cutoutPercentage: 80,
+            },
           });
 
 

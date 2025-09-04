@@ -12,26 +12,6 @@ $.ajax({
           const result = JSON.parse(jsonString); 
 
 
-           // myPieChart start
-           let divPai = document.getElementById("cre_desc");
-           let span = document.createElement("span");
-           span.setAttribute( "class","mr-2");
-           let itag;
-
-           divPai.innerHTML = '';
-          
-
-          result.resultado.forEach(item => {
-
-               itag = document.createElement("span");
-               itag.setAttribute( "class","fas fa-circle text-primary");
-               itag.setAttribute( "style","color:" +item.cor+ "!important;");
-               itag.innerHTML=item.CRE_RELACIONADO;
-               span.appendChild(itag);
-
-           });
-
-          divPai.appendChild(span);
 
 
           // END
@@ -74,7 +54,6 @@ $.ajax({
 
           }
 
-            console.log(count)
 
             let title_dv = document.getElementById("cre_relacionado_title");
             let title_CREO = document.createElement("h6");
@@ -82,39 +61,6 @@ $.ajax({
             title_CREO.innerHTML='CRE RELACIONADO ('+count+')';
             title_dv.appendChild(title_CREO);
 
-           //CRE_R.appendChild(progress);
-
-
-          var ctx = document.getElementById("myPieChart");
-          var myPieChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-              labels: result.resultado.map(item => item.CRE_RELACIONADO),
-              datasets: [{
-                data: result.resultado.map(item => item.TotalRegistos),
-                backgroundColor: result.resultado.map(item => item.cor),
-                hoverBackgroundColor: result.resultado.map(item => item.cor),
-                hoverBorderColor: "rgba(234, 236, 244, 1)",
-              }],
-            },
-            options: {
-              maintainAspectRatio: false,
-              tooltips: {
-                backgroundColor: "rgb(255,255,255)",
-                bodyFontColor: "#858796",
-                borderColor: '#dddfeb',
-                borderWidth: 1,
-                xPadding: 15,
-                yPadding: 15,
-                displayColors: false,
-                caretPadding: 10,
-              },
-              legend: {
-                display: false
-              },
-              cutoutPercentage: 80,
-            },
-          });
             },
         error: function (xhr, status, error) {
          
