@@ -13,11 +13,11 @@ $.ajax({
 
 
 
-
+  
           // END
 
           // c
-          let CRE_R = document.getElementById("cre_relacionado");
+         /* let CRE_R = document.getElementById("cre_relacionado");
           let h4;
           let span2;
           let progress;
@@ -59,7 +59,7 @@ $.ajax({
             let title_CREO = document.createElement("h6");
             title_CREO.setAttribute('class','m-0 font-weight-bold text-primary')
             title_CREO.innerHTML='CRE RELACIONADO ('+count+')';
-            title_dv.appendChild(title_CREO);
+            title_dv.appendChild(title_CREO);*/
 
             },
         error: function (xhr, status, error) {

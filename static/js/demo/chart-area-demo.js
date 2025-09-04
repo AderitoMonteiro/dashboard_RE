@@ -256,6 +256,57 @@ $.ajax({
           });
 
 
+          let CRE_R = document.getElementById("cre_relacionado");
+          let h4;
+          let span2;
+          let progress;
+          let progress_bar;
+          let count=0;
+
+          cre.forEach(obj => {
+
+                  Object.entries(obj).forEach(([chave, valores]) => {
+
+                  let item = cor_grafico.find(obj => obj.hasOwnProperty(chave));
+                  let percentagem = percentagem_grafico.find(obj => obj.hasOwnProperty(chave));
+                  let cor = cor_grafico.find(obj => obj.hasOwnProperty(chave));
+
+                  h4=document.createElement("h4");
+                  span2=document.createElement("span");
+
+                  h4.innerHTML=chave +' ('+ obj[chave].reduce((a, b) => a + Number(b), 0)+')';
+                  h4.setAttribute('class','small font-weight-bold')
+                  span2.setAttribute('class','float-right')
+                  span2.innerHTML=parseFloat(percentagem[chave].reduce((a, b) => a + Number(b), 0).toFixed(2))+'%';
+                  h4.appendChild(span2);
+                  CRE_R.appendChild(h4);
+
+                  progress=document.createElement("div");
+                  progress_bar=document.createElement("div");
+
+                  progress.setAttribute('class','progress mb-4')
+                  progress_bar.setAttribute('class','progress-bar bg-danger')
+                  progress_bar.setAttribute('role','progressbar')
+                  progress_bar.setAttribute('style','width:'+parseFloat(percentagem[chave].reduce((a, b) => a + Number(b), 0).toFixed(2))+'%;background-color:'+cor[chave]+'!important')
+                  progress_bar.setAttribute('aria-valuenow',parseFloat(percentagem[chave].reduce((a, b) => a + Number(b), 0).toFixed(2)))
+                  progress_bar.setAttribute('aria-valuemin','0')
+                  progress_bar.setAttribute('aria-valuemax','100')
+
+                  count=count+1;
+
+                  progress.appendChild(progress_bar);
+                  CRE_R.appendChild(progress);
+
+                });
+              });
+
+              
+            let title_dv = document.getElementById("cre_relacionado_title");
+            let title_CREO = document.createElement("h6");
+            title_CREO.setAttribute('class','m-0 font-weight-bold text-primary')
+            title_CREO.innerHTML='CRE RELACIONADO ('+count+')';
+            title_dv.appendChild(title_CREO);
+
         myLineChart.update();
 
         },
