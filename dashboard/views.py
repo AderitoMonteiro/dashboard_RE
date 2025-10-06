@@ -86,15 +86,24 @@ def get_info_sign_month(request):
                   query_info_sign_month = '''
                                           EXEC [dbo].[sp_registo_por_mes]
                                           ''' 
+                  query_info_sign_cre = '''
+                                          EXEC [dbo].[sp_registo_por_CRE_relatorio]
+                                          ''' 
+                  
 
                   with connection.cursor() as cursor:
                         cursor.execute(query_info_sign_month)
                         colunas = [col[0] for col in cursor.description] 
                         total_registo_mes = [dict(zip(colunas, row)) for row in cursor.fetchall()]
+            
+                  with connection.cursor() as cursor:
+                        cursor.execute(query_info_sign_cre)
+                        colunas = [col[0] for col in cursor.description] 
+                        total_registo_cre = [dict(zip(colunas, row)) for row in cursor.fetchall()]
 
 
 
-                  return JsonResponse({'resultado': total_registo_mes})
+                  return JsonResponse({'resultado': total_registo_mes,'registo_total_cre': total_registo_cre})
 
             except Exception as e:
               return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
