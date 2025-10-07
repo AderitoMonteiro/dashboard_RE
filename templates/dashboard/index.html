@@ -19,6 +19,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css'  %}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
 
 </head>
 
@@ -292,7 +295,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                Total Inscrito Diaspora</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4405</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{count.0.total}}</div>
                                         </div>
                                          <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -310,7 +313,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 NOVO REGISTO</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2420</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{count.0.novo_registo}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-solid fa-plus fa-2x text-gray-300"></i>
@@ -327,7 +330,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 TRANSFERÊNCIA</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1910</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{count.0.transferencia}}</div>
                                         </div>
                                         <div class="col-auto">
                                            <i class="fas fa-solid fa-people-arrows fa-2x text-gray-300"></i>
@@ -361,7 +364,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Percentagem de Duplas Eleminado
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">EM RELAÇÃO AO MES ANTERIOR
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -489,12 +492,12 @@
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
-                                <div id="cre_relacionado_title" class="card-header py-3">
+                                <!-- <div id="cre_relacionado_title" class="card-header py-3">
                                    
                                 </div>
                                 <div id="cre_relacionado" class="card-body">
 
-                                  <!--   {% for total_registo_cre_list in total_registo_cre %}
+                                    {% for total_registo_cre_list in total_registo_cre %}
                                         <h4 class="small font-weight-bold">{{total_registo_cre_list.CRE_ORIGEM}} ({{total_registo_cre_list.TotalRegistos}})<span
                                         class="float-right">{{total_registo_cre_list.PerceRegistos}} %</span></h4>
                                         <div class="progress mb-4">
@@ -505,9 +508,35 @@
 
                                     --> 
                                        
+                                <!-- Card Header - Dropdown -->
+                                        <div
+                                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                            <h6 class="m-0 font-weight-bold text-primary">NOVO INSCRITO NA DIASPORA POR PAIS</h6>
+                                            <div class="dropdown no-arrow">
+                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-header">Dropdown Header:</div>
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card Body -->
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <div id="AreaChart"></div>
+                                            </div>
+                                         </div>
+                                    </div>
                                 </div>
                                 
-                            </div>
+                        </div>
                         
 
                         </div>
@@ -516,9 +545,9 @@
                         
 
                         </div>
-                        <div class="col-lg-6 mb-4">
+                       <!--   <div class="col-lg-6 mb-4">
 
-                            <!-- Illustrations -->
+                           Illustrations 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Enquadramento</h6>
@@ -547,7 +576,7 @@
                                 </div>
                             </div>
 
-                            <!-- Approach -->
+                            Approach 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Abordagem de Desenvolvimento</h6>
@@ -562,7 +591,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>-->
                     </div>
 
                 </div>
@@ -628,7 +657,6 @@
     <!-- Page level custom scripts -->
 
     <script src="{% static 'js/demo/chart-area-demo.js'  %}"></script>
-    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
 
 </body>

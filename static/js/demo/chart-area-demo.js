@@ -42,6 +42,8 @@ $.ajax({
           let data_grafico=[];
           let cor_grafico=[];
           let percentagem_grafico=[];
+          let novo_registo=[];
+          let cre_registo=[];
           let x=0
           let total_mes=[]
 
@@ -333,6 +335,14 @@ $.ajax({
               
              }
 
+             for (let item of result.novo_registo_cre) {
+    
+               cre_registo.push(`${item.cre}`)
+               novo_registo.push(`${item.novo_registo}`)
+              
+             }
+
+            
 
          // Area Chart Example
 
@@ -458,7 +468,7 @@ $.ajax({
 
           chart.render();
 
-
+/*
           let CRE_R = document.getElementById("cre_relacionado");
           let h4;
           let span2;
@@ -503,7 +513,38 @@ $.ajax({
             let title_CREO = document.createElement("h6");
             title_CREO.setAttribute('class','m-0 font-weight-bold text-primary')
             title_CREO.innerHTML='CRE RELACIONADO ('+count+')';
-            title_dv.appendChild(title_CREO);
+            title_dv.appendChild(title_CREO);*/
+
+
+            //novo resgisto
+
+             var options = {
+
+                  series: [{
+                  data: novo_registo
+                }],
+                  chart: {
+                  type: 'bar',
+                  height: 350
+                },
+                plotOptions: {
+                  bar: {
+                    borderRadius: 4,
+                    borderRadiusApplication: 'end',
+                    horizontal: true,
+                  }
+                },
+                dataLabels: {
+                  enabled: false
+                },
+                xaxis: {
+                  categories: cre_registo,
+                }
+                };
+
+                var chart = new ApexCharts(document.querySelector("#AreaChart"), options);
+                chart.render();
+      
 
 
         },
