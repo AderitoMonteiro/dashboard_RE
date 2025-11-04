@@ -18,10 +18,12 @@ def dahsboard_index(request):
             query_count = [dict(zip(colunas, row)) for row in cursor.fetchall()]
 
 
+
     print(query_count)
 
 
     return render(request, 'dashboard/index.html',{"count":query_count})
+    
 
 @csrf_exempt
 def get_info_sign_month(request):
