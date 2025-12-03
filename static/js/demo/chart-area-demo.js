@@ -328,11 +328,30 @@ $.ajax({
               
              }
 
+            let dropdownMenuLink = document.getElementById("kre_list");
+            let dropdown_header= document.createElement("div");
+            dropdown_header.setAttribute( "class","dropdown-header");
+            dropdown_header.innerHTML='Diaspora:';
+            dropdownMenuLink.appendChild(dropdown_header);
+
+            let todos= document.createElement("a");
+            todos.setAttribute( "class","dropdown-item");
+            todos.setAttribute( "href","#");
+            todos.innerHTML='Todos';
+            dropdownMenuLink.appendChild(todos);
 
             for (let item of result.registo_total_cre) {
     
-               percentagem_grafico.push({y : `${item.PerceRegistos}`,label : `${item.cre}`})
-              
+
+              let a= document.createElement("a");
+              a.setAttribute( "class","dropdown-item");
+              a.setAttribute( "href","#");
+               a.setAttribute( "data-info",`${item.cre}`);
+              a.setAttribute( "onclick","handleClick(this)");
+              a.innerHTML=`${item.cre}`;
+              dropdownMenuLink.appendChild(a);
+
+               percentagem_grafico.push({y : `${item.PerceRegistos}`,label : `${item.cre}`})              
              }
 
              for (let item of result.novo_registo_cre) {
@@ -343,11 +362,12 @@ $.ajax({
              }
 
             
+            
 
-         // Area Chart Example
+           // Area Chart Example
 
-          var ctx = document.getElementById("myAreaChart");
-          var myLineChart = new Chart(ctx, {
+            var ctx = document.getElementById("myAreaChart");
+            var myLineChart = new Chart(ctx, {
             type: 'line',
             
             data: {

@@ -87,3 +87,34 @@ def get_info_sign_CRE(request):
 
             except Exception as e:
               return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+
+
+@csrf_exempt
+def get_evolution_month(request):
+
+
+    if request.method == "POST":
+            try:
+                  query_info_sign_month = '''
+                                                SET LANGUAGE Portuguese;
+                                                select 
+                                                CRE,
+                                                mes,
+                                                sum(total) as total
+                                                from [dbo].[RELATORIO_RE] WHERE CRE=%s
+                                                GROUP BY CRE,mes
+                                                ORDER BY 
+                                                DATEPART(MONTH,  CAST('01 ' + mes + ' 2025' AS DATETIME));
+                                          ''' 
+
+                  with connection.cursor() as cursor:
+                        cursor.execute(query_info_sign_month, [request.POST.get('CRE')])
+                        colunas = [col[0] for col in cursor.description] 
+                        total_registo_mes = [dict(zip(colunas, row)) for row in cursor.fetchall()]
+
+
+
+                  return JsonResponse({'resultado': total_registo_mes})
+
+            except Exception as e:
+              return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
