@@ -336,9 +336,12 @@ $.ajax({
 
             let todos= document.createElement("a");
             todos.setAttribute( "class","dropdown-item");
+            todos.setAttribute( "data-info",'Todos');
+            todos.setAttribute( "onclick","handleClick(this)");
             todos.setAttribute( "href","#");
             todos.innerHTML='Todos';
             dropdownMenuLink.appendChild(todos);
+
 
             for (let item of result.registo_total_cre) {
     
@@ -346,7 +349,7 @@ $.ajax({
               let a= document.createElement("a");
               a.setAttribute( "class","dropdown-item");
               a.setAttribute( "href","#");
-               a.setAttribute( "data-info",`${item.cre}`);
+              a.setAttribute( "data-info",`${item.cre}`);
               a.setAttribute( "onclick","handleClick(this)");
               a.innerHTML=`${item.cre}`;
               dropdownMenuLink.appendChild(a);

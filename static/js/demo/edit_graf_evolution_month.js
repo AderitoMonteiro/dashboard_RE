@@ -4,6 +4,8 @@
 function handleClick(button) {
 
      let cre = button.getAttribute("data-info");
+     let destaque = document.getElementById("context_grafico");
+     destaque.innerHTML = `(Evolução Mensal - ${cre})`;
 
      const data = {
         "CRE": cre
