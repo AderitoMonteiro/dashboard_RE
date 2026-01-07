@@ -401,8 +401,15 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">RECENSEAMENTO ELEITORAL NA DIASPORA <strong id="context_grafico"></strong></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">RECENSEAMENTO ELEITORAL NA DIASPORA <strong id="context_grafico"></strong>
+                                     <select id="ano" onchange="yearclick(this)" class="m-0 font-weight-bold text-primary">
+                                                <option value="" disabled selected>Ano</option>
+                                                <option value="2025" >2025</option>
+                                                <option value="2026" >2026</option>
+                                    </select>
+                                    </h6>
                                     <div class="dropdown no-arrow">
+                                       
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -600,7 +607,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; DGAPE DASHBOARD 2025</span>
+                        <span>Copyright &copy; DGAPE DASHBOARD 2026</span>
                     </div>
                 </div>
             </footer>
