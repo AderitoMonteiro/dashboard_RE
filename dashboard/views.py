@@ -33,7 +33,7 @@ def get_info_sign_month(request):
             try:
                   query_info_sign_month = '''
                                           EXEC [dbo].[sp_registo_por_mes]
-                                          @Ano = '2025'
+                                          @Ano = '2026'
                                           ''' 
                   query_info_sign_cre = '''
                                           EXEC [dbo].[sp_registo_por_CRE_relatorio]

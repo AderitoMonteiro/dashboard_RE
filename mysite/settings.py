@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'BDRE',
-        #'NAME': 'BDRE_dev',
+        #'NAME': 'BDRE',
+         'NAME': 'BDRE_dev',
         'USER': 'sa',
      # 'PASSWORD': 'Dgape.2025',
         'PASSWORD': 'A07971.sql',
